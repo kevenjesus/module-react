@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Profile from "./Profile";
 
+/// stateless
 function App() {
+  const users = [
+    {
+      name: "Keven",
+      age: 30,
+      img: "https://via.placeholder.com/100",
+    },
+    {
+      name: "Wesley",
+      age: 35,
+      size: "300",
+      img: "https://via.placeholder.com/100",
+    },
+    {
+      name: "Kehomens",
+      age: 23.5,
+      img: "https://via.placeholder.com/100",
+    },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {users.map((user) => {
+        return <Profile key={user.name} {...user} />;
+      })}
     </div>
   );
 }
